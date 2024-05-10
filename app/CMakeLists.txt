@@ -1,15 +1,15 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.28.1)
 project(app)
 
 # Source files
 add_executable(app app.cpp)
 
 # Find dependencies
-find_package(Boost 1.84.0 COMPONENTS filesystem regex)
+find_package(Boost 1.84.0 COMPONENTS property_tree)
 
 # Link libraries
 target_link_libraries(app PRIVATE core utils)
-target_link_libraries(app PRIVATE Boost::filesystem Boost::regex Boost::json)
+target_link_libraries(app PRIVATE Boost::property_tree)
 
 # Add definitions and properties
 set_target_properties(app PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})

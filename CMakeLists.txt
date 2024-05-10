@@ -1,9 +1,15 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.28.1)
 include(cmake/build.cmake)
+include(cmake/utilities.cmake)
 project(debugGather
         VERSION 1.0
         DESCRIPTION "An C++23 cross-platform application to gather debug information about a platform"
         LANGUAGES C CXX)
+
+detectOS()
+detectArch()
+
+message(STATUS "Compiling for ${PLATFORM} on ${ARCHITECTURE}")
 
 set(CMAKE_CXX_STANDARD 23)
 set(BUILD_SHARED_LIBS OFF)
